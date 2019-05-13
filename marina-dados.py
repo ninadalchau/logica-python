@@ -1,6 +1,6 @@
 from random import randint
 
-print("Jodo de Dado:")
+print("Jogo de Dado:")
 
 dados1 = randint(1, 6)
 dados2 = randint(1, 6)
