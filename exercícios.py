@@ -46,43 +46,66 @@ def dias_para_segundos(dias, horas, minutos, segundos):
 
 
 def celsius_para_fahrenheit(c):
+    fahrenheit = 1.8 * c + 32
+    return fahrenheit
     """ Recebe uma temperatura em celsius, e retorna a temperatura
     em fahrenheit"""
 
 
 def fahrenheit_para_celsius(f):
+    celsius = (f-32) / 1.8
+    celsius = round(celsius,2)
+    return celsius
     """ Recebe uma temperatura em fahrenheit, e retorna a temperatura
      em celsius"""
 
 
 def preco_aluguel_carro(dias, km):
+    precototal = (dias * 60) + (0.15 * km)
+    return precototal
     """ Recebe uma quantidade de dias que o carro foi alugado e a
     quantidade de quilômetros rodados, e retorna o valor a ser pago.
     1 dia: 60 reais mais R$ 0,15 por km rodado."""
 
 
 def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
+    diasperdidos = cigarros_fumados_por_dia * (anos_fumando * 365) * 10 / 1440
+    diasperdidos = round(diasperdidos, 2)
+    return diasperdidos
     """ Recebe uma quantidade de cigarros fumados por dia e a quantidade
      de anos que fuma, e retorna o total de dias perdidos, sabendo que
      cada cigarro reduz a vida em 10 minutos."""
 
 
 def dois_elevado_a_um_milhao():
-    2**1000000
+    result = (len(str(2**1000000)))
+    return result
     """ Calcula dois elevado a um milhão, e retorna a quantidade de
     algarismos"""
 
 
 def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
+
+    media1 = (p1 * 7) + (ep1 * 3) / 10
+    media2 = (p2 * 7) + (ep2 * 3) / 10
+    mediafinal = media1 + media2 / 2
+    mediafinal = round(mediafinal, 1)
+    if mediafinal > 7:
+        return True
+    else:
+        return False
     """ Recebe as notas das 2 provas e 2 exercícios de programação e retorna
     se o aluno foi ou não aprovado. As provas têm peso 7 e os exercícios
     têm peso 3. Cada parcial tem peso igual."""
 
 
 def salario(valor_hora, horas_mensais):
+    salariobruto = valor_hora * horas_mensais
+    salarioblablabla = (salariobruto * 0.08) + (salariobruto * 0.11) + (salariobruto * 0.05)
+    salarioliquido = salariobruto - salarioblablabla
+    return salarioliquido
     """ Recebe quanto ganha por hora e quantas horas trabalho ao mês,
     e retorna o salário líquido.
-
     Descontos:
     - INSS é 8% do salário bruto
     - IR é 11% do salário bruto
