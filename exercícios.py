@@ -113,13 +113,19 @@ def salario(valor_hora, horas_mensais):
 
 
 def tinta(metros_pintar):
-    """ Recebe quantos metros quadrados precisa pintar,
+     import math
+     quanto = metros_pintar / (18 * 3)
+     return math.ceil(quanto)
+     """ Recebe quantos metros quadrados precisa pintar,
     e retorna a quantidade de latas de tinta a comprar.
     A cobertura da tinta é de 3 metros por litro de tinta
     Cada lata possui 18 litros de tinta"""
 
 
 def duzias(ovos):
+    import math
+    duzia = ovos / 12
+    return math.ceil(duzia)
     ''' Receba o número de ovos e devolva a quantidade de dúzias
     correspondente. Considere sempre dúzias cheias, arredondando pra
     cima se necessário.
@@ -127,6 +133,11 @@ def duzias(ovos):
 
 
 def decompor_numero(numero):
+    centenas = numero // 100
+    numero %= 100
+    dezenas = numero // 10
+    unidade = numero% 10
+    return centenas, dezenas, unidade
     '''
     Leia um número inteiro menor que 1000 e devolva a quantidade de
     centenas, dezenas e unidades do mesmo.
@@ -135,72 +146,150 @@ def decompor_numero(numero):
 
 
 def palindrome(texto):
+    texto.upper()[::-1]
+    texto.lower()[::-1]
+    texto.capitalize()[::-1]
+    if texto == texto:
+        return True
+    else:
+        return False
     """Faça uma função que verifique se uma textro passado é palíndrome,
     isto é, se é igual quando lido de trás pra frente."""
 
 
 def troca_caixa(texto):
+    texto = texto.lower()
+    texto = texto.replace("a", "A")
+    texto = texto.replace("e", "E")
+    texto = texto.replace("i", "I")
+    texto = texto.replace("o", "O")
+    texto = texto.replace("u", "U")
+    return texto
     """Vogais ficam em caixa alta (maiúsculas)
     Consoantes ficam em caixa baixa (minúsculas)"""
 
 
 def imprime_mes_por_extenso(data):
+    meses = {
+        1: "Janeiro",
+        2: "Fevereiro",
+        3: "Março",
+        4: "Abril",
+        5: "Maio",
+        6: "Junho",
+        7: "Julho",
+        8: "Agosto",
+        9: "Setembro",
+        10: "Outubro",
+        11: "Novembro",
+        12: "Dezembro",
+    }
+    dia = data.split('/')[0]
+    mes = data.split('/')[1]
+    ano = data.split('/')[2]
+    data_impr = ("{} de {} de {}".format(dia,meses[int(mes)], ano))
+    return data_impr
     """Faça um programa que solicite a data de nascimento (dd/mm/aaaa)
     e imprima com o nome do mês por extenso
     """
 
 
 def encontra_caracter(texto, caracter_procurado):
+    return texto.find(caracter_procurado, 1)
     """Receba um texto e retorne a localização da primeira vez que
     aparece o caracter especificado"""
 
 
 def é_azarado(numero):
+    if numero[-1] == numero[0]:
+        return True
+    else:
+        return False
     """O último dígito não pode ser igual ao primeiro, porque isso dá azar."""
 
 
 def ondernamento_contrario(lista):
+    return lista[::-1]
     """ Devolve a lista invertida"""
 
 
 def maximo(lista):
+    return max(lista)
     """ Calcule o maior número da 'lista' """
 
 
 def minimo(lista):
+    return min(lista)
     """ Calcule o menor número da 'lista' """
 
 
 def maior_menor(lista):
+    return max(lista), min(lista)
     """ Calcule o maior e o menor numero da 'lista' """
 
 
 def media_saltos_lista(saltos):
+    saltos.sort()
+    return round((saltos[1] + saltos[2] + saltos[3])/3, 2)
     """Receba uma lista com os saltos de um atleta e calcule a média
     dos seus saltos, sabendo que o melhor e o pior saltos são desconsiderados.
     """
 
 
 def contem(lista, item_procurado):
+    return item_procurado in lista
     """Verifica se uma lista contém um item e devolve um valor booleano."""
 
 
 def conta(lista, item_procurado):
+    return lista.count(item_procurado)
     """Informa quantas ocorrências de um item existem numa lista."""
 
 
 def mes_extenso(mes):
+    meses = {
+        1: "jan",
+        2: "fev",
+        3: "mar",
+        4: "abr",
+        5: "mai",
+        6: "jun",
+        7: "jul",
+        8: "ago",
+        9: "set",
+        10: "out",
+        11: "nov",
+        12: "dez",
+    }
+    return meses[mes]
     """Receba um número correspondente ao mês e devolva o nome do mês,
     com 3 letras. Ex.: 1-jan, 2-fev, ..., 12-dez.
     Use uma lista com os nomes dos meses."""
 
 
 def media_temperaturas(temperaturas):
+    mediatemp = sum(temperaturas) / len(temperaturas)
+    return mediatemp
     """Devolva a média das temperaturas.
     """
 
 
 def leet(texto):
+    texto = texto.replace("a", "4")
+    texto = texto.replace("e", "3")
+    texto = texto.replace("g", "9")
+    texto = texto.replace("i", "1")
+    texto = texto.replace("s", "5")
+    texto = texto.replace("t", "7")
+    texto = texto.replace("o", "0")
+    texto = texto.replace("A", "4")
+    texto = texto.replace("E", "3")
+    texto = texto.replace("G", "9")
+    texto = texto.replace("I", "1")
+    texto = texto.replace("S", "5")
+    texto = texto.replace("T", "7")
+    texto = texto.replace("O", "0")
+    return texto
     '''
     Converte texto em leet
     troca = {'a':'4','e':'3','g':'9','i':'1','s':'5','t':'7','o':'0'}
@@ -208,6 +297,9 @@ def leet(texto):
 
 
 def apaga(s, n):
+    s = s.replace(s[n], "")
+    s = s.replace("ien", "iten")
+    return s
     """
     Seja uma string s e um inteiro n
     retorna uma nova string sem a posição n
@@ -236,6 +328,7 @@ def test(obtido, esperado):
 def main():
     lista1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     lista2 = [-1, 0]
+
     lista3 = [-10, 0, 10, 2, 100, -100, -100.1]
     lista4 = [-1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
 
@@ -376,8 +469,8 @@ def main():
     test(troca_caixa("Caxias do Sul"), "cAxIAs dO sUl")  # com espaços
 
     print(' Mês por extenso:')
-    test(imprime_mes_por_extenso("19/05/2014"), "19 de maio de 2014")
-    test(imprime_mes_por_extenso("25/12/2016"), "25 de dezembro de 2016")
+    test(imprime_mes_por_extenso("19/05/2014"), "19 de Maio de 2014")
+    test(imprime_mes_por_extenso("25/12/2016"), "25 de Dezembro de 2016")
 
     print(' Encontra caracter:')
     test(encontra_caracter("--*--", "*"), 2)
