@@ -3,107 +3,81 @@ from typing import Any, Union
 
 
 def soma_dois_inteiros(a, b):
-    soma = a + b
-    return soma
+    return a + b
     """ Recebe dois números inteiros, e retorna a sua soma"""
 
 
 def metro_para_milimetros(metros):
-    milimetros = metros * 1000
-    return milimetros
+    return  metros * 1000
     """ Recebe um valor em metros, e retorna o valor em milímetros"""
 
 
 def tempo_para_percorrer_uma_distancia(distancia, velocidade):
-    tempo = distancia/ velocidade
-    tempo = round(tempo, 2)
-    return tempo
+    return round(distancia/velocidade, 2)
     """ Recebe uma distância e a velocidade de movimentação, e retorna
     as horas que seriam gastas para percorrer em linha reta"""
 
 
 def aumento_salarial(salario, porcentagem):
-    resultado = salario + (salario * porcentagem / 100)
-    resultado = round(resultado, 2)
-    return resultado
+    return round(salario + (salario * porcentagem / 100), 2)
     """ Recebe um salário e sua porcentagem de aumento, e retorna
     o novo salário"""
 
 
 def preco_com_desconto(preco_original, percentual_desconto):
-    novopreco = preco_original - (preco_original * percentual_desconto / 100)
-    novopreco= round(novopreco, 2)
-    return novopreco
+    return round(preco_original - (preco_original * percentual_desconto / 100), 2)
     """ Recebe um preço e sua porcentagem de desconto, e retorna
     novo preço"""
 
 
 def dias_para_segundos(dias, horas, minutos, segundos):
-    segundos = (dias * 86400) + (horas * 3600)+ (minutos * 60) + segundos
-    return segundos
+    return (dias * 86400) + (horas * 3600)+ (minutos * 60) + segundos
     """ Recebe uma data em dias com horas, minutos e segundos, e retorna
     a data em segundos"""
 
 
 def celsius_para_fahrenheit(c):
-    fahrenheit = 1.8 * c + 32
-    return fahrenheit
+    return  1.8 * c + 32
     """ Recebe uma temperatura em celsius, e retorna a temperatura
     em fahrenheit"""
 
 
 def fahrenheit_para_celsius(f):
-    celsius = (f-32) / 1.8
-    celsius = round(celsius,2)
-    return celsius
+    return round((f-32) / 1.8 ,2)
     """ Recebe uma temperatura em fahrenheit, e retorna a temperatura
      em celsius"""
 
 
 def preco_aluguel_carro(dias, km):
-    precototal = (dias * 60) + (0.15 * km)
-    return precototal
+    return (dias * 60) + (0.15 * km)
     """ Recebe uma quantidade de dias que o carro foi alugado e a
     quantidade de quilômetros rodados, e retorna o valor a ser pago.
     1 dia: 60 reais mais R$ 0,15 por km rodado."""
 
 
 def dias_perdidos_por_fumar(cigarros_fumados_por_dia, anos_fumando):
-    diasperdidos = cigarros_fumados_por_dia * (anos_fumando * 365) * 10 / 1440
-    diasperdidos = round(diasperdidos, 2)
-    return diasperdidos
+    return round(cigarros_fumados_por_dia * (anos_fumando * 365) * 10 / 1440, 2)
     """ Recebe uma quantidade de cigarros fumados por dia e a quantidade
      de anos que fuma, e retorna o total de dias perdidos, sabendo que
      cada cigarro reduz a vida em 10 minutos."""
 
 
 def dois_elevado_a_um_milhao():
-    result = (len(str(2**1000000)))
-    return result
+    return (len(str(2**1000000)))
     """ Calcula dois elevado a um milhão, e retorna a quantidade de
     algarismos"""
 
 
 def media_final_aprovado_reprovado(p1, p2, ep1, ep2):
-
-    media1 = (p1 * 7) + (ep1 * 3) / 10
-    media2 = (p2 * 7) + (ep2 * 3) / 10
-    mediafinal = media1 + media2 / 2
-    mediafinal = round(mediafinal, 1)
-    if mediafinal > 7:
-        return True
-    else:
-        return False
+    media = round(((p1 * 7) + (ep1 * 3) / 10) + ((p2 * 7) + (ep2 * 3) / 10) / 2, 1)
+    return media >= 7
     """ Recebe as notas das 2 provas e 2 exercícios de programação e retorna
     se o aluno foi ou não aprovado. As provas têm peso 7 e os exercícios
     têm peso 3. Cada parcial tem peso igual."""
 
 
 def salario(valor_hora, horas_mensais):
-    salariobruto = valor_hora * horas_mensais
-    salarioblablabla = (salariobruto * 0.08) + (salariobruto * 0.11) + (salariobruto * 0.05)
-    salarioliquido = salariobruto - salarioblablabla
-    return salarioliquido
+    return (valor_hora * horas_mensais) - (((valor_hora * horas_mensais) * 0.08) + (valor_hora * horas_mensais * 0.11) + (valor_hora * horas_mensais * 0.05))
     """ Recebe quanto ganha por hora e quantas horas trabalho ao mês,
     e retorna o salário líquido.
     Descontos:
@@ -114,8 +88,7 @@ def salario(valor_hora, horas_mensais):
 
 def tinta(metros_pintar):
      import math
-     quanto = metros_pintar / (18 * 3)
-     return math.ceil(quanto)
+     return math.ceil(metros_pintar / (18 * 3))
      """ Recebe quantos metros quadrados precisa pintar,
     e retorna a quantidade de latas de tinta a comprar.
     A cobertura da tinta é de 3 metros por litro de tinta
@@ -124,8 +97,7 @@ def tinta(metros_pintar):
 
 def duzias(ovos):
     import math
-    duzia = ovos / 12
-    return math.ceil(duzia)
+    return math.ceil(ovos / 12)
     ''' Receba o número de ovos e devolva a quantidade de dúzias
     correspondente. Considere sempre dúzias cheias, arredondando pra
     cima se necessário.
@@ -136,7 +108,7 @@ def decompor_numero(numero):
     centenas = numero // 100
     numero %= 100
     dezenas = numero // 10
-    unidade = numero% 10
+    unidade = numero % 10
     return centenas, dezenas, unidade
     '''
     Leia um número inteiro menor que 1000 e devolva a quantidade de
