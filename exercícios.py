@@ -118,13 +118,9 @@ def decompor_numero(numero):
 
 
 def palindrome(texto):
-    texto.upper()[::-1]
     texto.lower()[::-1]
     texto.capitalize()[::-1]
-    if texto == texto:
-        return True
-    else:
-        return False
+    return texto == texto
     """Faça uma função que verifique se uma textro passado é palíndrome,
     isto é, se é igual quando lido de trás pra frente."""
 
@@ -143,18 +139,18 @@ def troca_caixa(texto):
 
 def imprime_mes_por_extenso(data):
     meses = {
-        1: "Janeiro",
-        2: "Fevereiro",
-        3: "Março",
-        4: "Abril",
-        5: "Maio",
-        6: "Junho",
-        7: "Julho",
-        8: "Agosto",
-        9: "Setembro",
-        10: "Outubro",
-        11: "Novembro",
-        12: "Dezembro",
+        1: "janeiro",
+        2: "fevereiro",
+        3: "março",
+        4: "abril",
+        5: "maio",
+        6: "junho",
+        7: "julho",
+        8: "agosto",
+        9: "setembro",
+        10: "outubro",
+        11: "novembro",
+        12: "dezembro",
     }
     dia = data.split('/')[0]
     mes = data.split('/')[1]
@@ -173,10 +169,7 @@ def encontra_caracter(texto, caracter_procurado):
 
 
 def é_azarado(numero):
-    if numero[-1] == numero[0]:
-        return True
-    else:
-        return False
+    return numero[-1] == numero[0]
     """O último dígito não pode ser igual ao primeiro, porque isso dá azar."""
 
 
@@ -441,8 +434,8 @@ def main():
     test(troca_caixa("Caxias do Sul"), "cAxIAs dO sUl")  # com espaços
 
     print(' Mês por extenso:')
-    test(imprime_mes_por_extenso("19/05/2014"), "19 de Maio de 2014")
-    test(imprime_mes_por_extenso("25/12/2016"), "25 de Dezembro de 2016")
+    test(imprime_mes_por_extenso("19/05/2014"), "19 de maio de 2014")
+    test(imprime_mes_por_extenso("25/12/2016"), "25 de dezembro de 2016")
 
     print(' Encontra caracter:')
     test(encontra_caracter("--*--", "*"), 2)
